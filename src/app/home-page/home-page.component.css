@@ -1,0 +1,50 @@
+.flex-container {
+    display: flex;
+    margin-top: 10%;
+    height: 150%;
+    width: 80%;
+    margin-left: 15%;
+}
+
+.flex-child {
+    flex: 1;
+}  
+
+.flex-child:first-child {
+    margin-right: 10%;
+    flex-basis: 0.1%;
+}
+
+#text-com {
+  height: 90%;
+  background-color: rgb(212, 209, 209);
+}
+
+.flex-child:last-child {
+  flex-basis: 20%;
+}
+
+h5 {
+  text-align: center;
+  font-size: 90%;
+}
+
+h4 {
+  padding: 1%;
+  text-align: center;
+}
+
+img {
+  width: auto;
+  height: 130%;
+}
+
+.btn-primary {
+  background-color: #60D1D0;
+  border-color: #50b6b4;
+}
+
+.btn-primary:hover {
+  background-color: #4ca7a5;
+  border-color: #50b6b4;
+}
