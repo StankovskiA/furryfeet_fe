@@ -9,6 +9,12 @@ const routes: Routes = [
       import('./hello/hello.module').then((m) => m.HelloModule),
   },
   { path: 'home', component: HomePageComponent },
+import { AboutComponent } from './about/about.component';
+
+const routes: Routes = [
+  { path: 'hi', loadChildren: () => import('./hello/hello.module').then(m => m.HelloModule) },
+  { path: 'about', component: AboutComponent }
+
 ];
 
 @NgModule({
