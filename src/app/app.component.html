@@ -1,29 +1,36 @@
 <head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    </head>
+</head>
 <div class="container">
     <div class="header">
         <div class="logo">
             <mat-icon id="logo">pets</mat-icon>
+            <div id="furry">FurryFeet</div>
         </div>
         <div class="navbar">
             <nav>
                 <a routerLink="/home" routerLinkActive="active">Home</a>
                 <a routerLink="/about" routerLinkActive="active">About</a>
                 <a routerLink="/bookings" routerLinkActive="active">Appointments</a>
-                <a routerLink="/profile" routerLinkActive="active">Profile</a>
+                <ng-container *ngIf="checkLoggedIn(); else notLoggedIn">
+                    <a routerLink="/profile" routerLinkActive="active">Profile</a>
+                    <a routerLink="/" (click)="logout()" routerLinkActive="active">Logout</a>
+                </ng-container>
+                <ng-template #notLoggedIn>
+                    <a routerLink="/auth/login" routerLinkActive="active">Login</a>
+                </ng-template>
             </nav>
         </div>
     </div>
     <div class="content">
-         <router-outlet></router-outlet> 
+        <router-outlet></router-outlet>
     </div>
     <div class="footer">
         <div class="icons">
             <i class="fa fa-instagram" aria-hidden="true"></i>
             <i class="fa fa-facebook-square" aria-hidden="true"></i>
             <i class="fa fa-linkedin-square" aria-hidden="true"></i>
-            <i class="fa fa-envelope-o" aria-hidden="true"></i> 
+            <i class="fa fa-envelope-o" aria-hidden="true"></i>
         </div>
     </div>
 </div>
