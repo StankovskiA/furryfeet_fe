@@ -48,14 +48,24 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 import { AboutComponent } from './about/about.component';
+import { LoginComponent } from './auth/login/login.component';
+import { RegisterComponent } from './auth/register/register.component';
+import { ChangePasswordComponent } from './auth/change-password/change-password.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    AboutComponent
+    AboutComponent,
+    LoginComponent,
+    RegisterComponent,
+    ChangePasswordComponent,
+    LoginComponent
   ],
   imports: [
+    FormsModule,
+    ReactiveFormsModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
