@@ -4,6 +4,7 @@ import { AboutComponent } from './about/about.component';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { ChangePasswordComponent } from './auth/change-password/change-password.component';
+import { AppointmentComponent } from './appointment/appointment.component';
 
 const routes: Routes = [
   { path: 'hi', loadChildren: () => import('./hello/hello.module').then(m => m.HelloModule) },
@@ -14,7 +15,14 @@ const routes: Routes = [
       { path: 'changepassword', component: ChangePasswordComponent },
     ], 
   },
-  { path: 'about', component: AboutComponent }
+  { path: 'about', component: AboutComponent },
+  { path: 'appointment',
+  children:[ 
+      { path: 'all-appointments', component: AppointmentComponent},
+      
+    ],
+ 
+},
 
 ];
 

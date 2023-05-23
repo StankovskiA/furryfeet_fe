@@ -52,6 +52,8 @@ import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { ChangePasswordComponent } from './auth/change-password/change-password.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AppointmentComponent } from './appointment/appointment.component';
+import { ListappointmentsService } from './core/services/listappointments.service';
 
 
 @NgModule({
@@ -61,7 +63,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     LoginComponent,
     RegisterComponent,
     ChangePasswordComponent,
-    LoginComponent
+    LoginComponent,
+    AppointmentComponent
   ],
   imports: [
     FormsModule,
@@ -143,7 +146,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatSortModule,
     MatTableModule
   ],
-  providers: [],
+  providers: [ListappointmentsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
