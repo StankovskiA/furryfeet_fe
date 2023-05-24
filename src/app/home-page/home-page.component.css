@@ -24,15 +24,16 @@
 }
 
 #text-com {
-  padding-top: 25%;
+  padding-top: 50%;
   padding-left: 5%;
   padding-right: 5%;
-  height: 90%;
   background-color: #60D1D0;
   color: white;
   font-size: 25px;
   font-weight: bold;
-  height: 30%;
+  height: 50%;
+  width: 110%;
+  border-radius: 50%;
 }
 
 .flex-child:last-child {
@@ -57,7 +58,10 @@ img {
 .btn-primary {
   background-color: #60D1D0;
   border-color: #50b6b4;
-  width: 30%;
+  color: white;
+  font-size: 20px;
+  width: 50%;
+  height: 5%;
   margin-top: 5%;
   border-radius: 25px;
 }
@@ -65,5 +69,6 @@ img {
 .btn-primary:hover {
   background-color: #4ca7a5;
   border-color: #50b6b4;
+  color: white;
   border-radius: 25px;
 }
