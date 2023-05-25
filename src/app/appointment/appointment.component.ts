@@ -11,39 +11,35 @@ import { Appointment } from '../core/interfaces/appointment';
   styleUrls: ['./appointment.component.css']
 })
 export class AppointmentComponent implements OnInit {
-title = 'angularhttp';
-private tokenKey = 'jwtToken';
 
-constructor(private listappointmentsService: ListappointmentsService){}
+  private tokenKey = 'jwtToken';
 
-ngOnInit(): void {
-  this.onGetAppointments();
-}
 
-onGetAppointments(): void {
 
-  const token = localStorage.getItem('jwtToken');
-  console.log(localStorage)
+  constructor(private listappointmentsService: ListappointmentsService) { }
 
-  console.log(!token)
+  appointments: Appointment[] = [];
 
-  if (!token) {
-    console.log("Token not found");
-    return; 
+  ngOnInit(): void {
+    this.onGetAppointments();
   }
 
-  this.listappointmentsService.getAppointments(token)
-    .pipe(
-      tap((response) => console.log(response)),
-      catchError((error: any) => {
-        console.log(error);
-        // Handle error as needed
-        // Return an observable or throw an error to propagate it further
-        return throwError(error);
-      })
-    )
-    .subscribe(
-      () => console.log("done")
-    );
-}
+  onGetAppointments():  void {
+    const user = {
+      jwt: localStorage.getItem(this.tokenKey)
+    };
+  
+    this.listappointmentsService.getAppointments(user)
+      .subscribe(
+        appointments => {
+          console.log('Appointments:', appointments);
+          this.appointments = appointments;
+        },
+        error => {
+          console.error('Error retrieving appointments:', error);
+          // Handle the error or rethrow it if necessary
+          return throwError(error);
+        }
+      );
+  }
 }

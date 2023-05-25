@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { HttpClient, HttpEvent, HttpHeaders, HttpParams } from '@angular/common/http';
+import { Observable, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 import { Appointment } from '../interfaces/appointment';
 import { environment } from 'src/environments/environment';
 
@@ -11,15 +12,42 @@ export class ListappointmentsService {
 
   constructor(private http: HttpClient) { }
 
-  getAppointments(token: string): Observable<Appointment[]>{
+  getAppointments(user: any): Observable<Appointment[]> {
+    const token = localStorage.getItem('jwtToken');
+    if (!token) {
+      // User is not logged in, so throw an error
+      return throwError(new Error('Token problem'));
+    }
+
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-    
-    return this.http.get<Appointment[]>(`${environment.apiUrl}/appointment/all-appointments/`)
+    const params = { jwtToken: token };
+
+    return this.http.get<Appointment[]>(`${environment.apiUrl}/appointment/all-appointments/`, { headers, params })
+      .pipe(
+        catchError((error: any) => {
+          console.error('Error retrieving appointments:', error);
+          return throwError(new Error('An error occurred while retrieving appointments.'));
+        })
+      );
   }
 
+  getAppointment(appointmentId: string): Observable<Appointment> {
+    const token = localStorage.getItem('jwtToken');
+    if (!token) {
+      //  user is not logged in
+      return throwError(Error) as Observable<Appointment>;
+    }
 
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    return this.http.get<Appointment>(`${environment.apiUrl}/appointment/get-appointment/${appointmentId}/`, { headers })
+      .pipe(
+        catchError((error: any) => {
 
-  getAppointment(): Observable<Appointment>{
-    return this.http.get<Appointment>('http://127.0.0.1:8000/api/appointment/get-appointment/{appointment_id}/')
+          return throwError(Error) as Observable<Appointment>;
+        })
+      );
   }
 }
+
+
+

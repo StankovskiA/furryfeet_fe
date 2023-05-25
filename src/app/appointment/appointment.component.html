@@ -1,1 +1,16 @@
 <p>appointment works!</p>
+
+<div>
+    <button (click)="onGetAppointments()">Appointments</button>
+  </div>
+  
+  <div *ngIf="appointments">
+    <div *ngFor="let appointment of appointments">
+      <div class="card">
+        
+        <p>{{ appointment.detail }}</p>
+        
+      </div>
+    </div>
+  </div>
+  

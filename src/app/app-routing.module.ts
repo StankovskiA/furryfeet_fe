@@ -19,6 +19,7 @@ const routes: Routes = [
   { path: 'appointment',
   children:[ 
       { path: 'all-appointments', component: AppointmentComponent},
+      { path: 'appointment_details', component: AppointmentComponent},
       
     ],
  
