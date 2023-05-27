@@ -14,6 +14,7 @@ const routes: Routes = [
       { path: 'changepassword', component: ChangePasswordComponent },
     ], 
   },
+  { path: '', component: HomePageComponent },
   { path: 'home', component: HomePageComponent },
   { path: 'about', component: AboutComponent }
 

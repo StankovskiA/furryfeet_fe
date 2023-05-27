@@ -27,7 +27,7 @@
   padding-top: 50%;
   padding-left: 5%;
   padding-right: 5%;
-  background-color: #60D1D0;
+  background-color: #186550;
   color: white;
   font-size: 25px;
   font-weight: bold;
@@ -56,8 +56,8 @@ img {
 }
 
 .btn-primary {
-  background-color: #60D1D0;
-  border-color: #50b6b4;
+  background-color: #186550;
+  border-color: #186550;
   color: white;
   font-size: 20px;
   width: 50%;
@@ -67,8 +67,8 @@ img {
 }
 
 .btn-primary:hover {
-  background-color: #4ca7a5;
-  border-color: #50b6b4;
+  background-color: darkcyan;
+  border-color: #186550;
   color: white;
   border-radius: 25px;
 }
