@@ -12,9 +12,6 @@ import { Appointment } from '../core/interfaces/appointment';
 })
 export class AppointmentComponent implements OnInit {
 
-  private tokenKey = 'jwtToken';
-
-
 
   constructor(private listappointmentsService: ListappointmentsService) { }
 
@@ -25,20 +22,14 @@ export class AppointmentComponent implements OnInit {
   }
 
   onGetAppointments():  void {
-    const user = {
-      jwt: localStorage.getItem(this.tokenKey)
-    };
-  
-    this.listappointmentsService.getAppointments(user)
+    this.listappointmentsService.getAppointments()
       .subscribe(
-        appointments => {
+        (appointments: any) => {
           console.log('Appointments:', appointments);
           this.appointments = appointments;
         },
-        error => {
+        (error: any) => {
           console.error('Error retrieving appointments:', error);
-          // Handle the error or rethrow it if necessary
-          return throwError(error);
         }
       );
   }
