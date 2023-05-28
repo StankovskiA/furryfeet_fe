@@ -53,6 +53,7 @@ import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { ChangePasswordComponent } from './auth/change-password/change-password.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AppointmentsListComponent } from './appointments-list/appointments-list.component';
 
 @NgModule({
   declarations: [
@@ -62,7 +63,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     RegisterComponent,
     ChangePasswordComponent,
     HomePageComponent,
-    LoginComponent
+    LoginComponent,
+    AppointmentsListComponent
   ],
   imports: [
     FormsModule,

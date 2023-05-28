@@ -5,6 +5,7 @@ import { AboutComponent } from './about/about.component';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { ChangePasswordComponent } from './auth/change-password/change-password.component';
+import { AppointmentsListComponent } from './appointments-list/appointments-list.component';
 
 const routes: Routes = [
   { path: 'auth', 
@@ -16,7 +17,8 @@ const routes: Routes = [
   },
   { path: '', component: HomePageComponent },
   { path: 'home', component: HomePageComponent },
-  { path: 'about', component: AboutComponent }
+  { path: 'about', component: AboutComponent },
+  { path: 'appointments-list', component: AppointmentsListComponent }
 
 ];
 

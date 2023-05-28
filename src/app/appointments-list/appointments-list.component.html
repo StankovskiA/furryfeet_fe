@@ -1,0 +1,26 @@
+<p>appointments-list works!</p>
+<!-- appointments.component.html -->
+  
+  <!-- Main Content -->
+  <section class="container">
+    <h1>Appointment List</h1>
+  
+    <div class="row">
+      <div class="col-md-3" *ngFor="let appointment of appointments">
+        <div class="card mb-3">
+          <div class="card-body">
+            <h5 class="card-title">{{ appointment.date }}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">{{ appointment.dog_walker }}</h6>
+            <p class="card-text">
+              <strong>Dog:</strong> {{ appointment.dog }}
+            </p>
+            <p class="card-text">
+              <strong>Timeslot:</strong> {{ appointment.timeslot }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
