@@ -1,0 +1,79 @@
+.dog-walkers {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .dog-walker {
+    margin-right: 10px;
+    font-size: 20px;
+    align-self: flex-start;
+    padding: 30px;
+  }
+  
+  .dog-walker-name {
+    color: #298279;
+    cursor: pointer;
+  }
+  .appointment-heading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin: 0 auto;
+}
+
+.appointment-text {
+    color: #b8b8aa;
+    background-color: #298279;
+    padding: 5px 10px;
+    border-radius: 5px;
+  }
+  
+.custom-button {
+    color: #298279;
+    padding: 15px 15px 10px 15px;
+    border: none;
+    
+    margin-bottom: 10px;
+    width: 50%;
+    text-align: center;
+    white-space: nowrap;
+    display: inline-block;
+    box-sizing: border-box;
+  }
+  .timeslot-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .dog-walker-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .card {
+    margin: 10px;
+    text-align: center;
+  }
+
+  .slot-button{
+    background-color: #298279;
+    padding: 5px 10px;
+    border-radius: 5px;
+  }
+  
+  
+  
+  
+  
+  

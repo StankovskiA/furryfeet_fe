@@ -8,6 +8,5 @@ import { Component,OnInit } from '@angular/core';
 
 export class HomePageComponent implements OnInit{
  ngOnInit(): void {
-   console.log("MACA");
  }
 }

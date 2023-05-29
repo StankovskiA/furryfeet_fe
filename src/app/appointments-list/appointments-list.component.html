@@ -1,0 +1,36 @@
+
+    <h1 class="appointment-heading">
+      <span class="appointment-text">SEE AVAILABLE SLOTS!</span>
+    </h1>
+
+
+
+  <div class="section">
+    <div class="dog-walker-container">
+      <div class="card" style="width: 18rem;" *ngFor="let dog_walker of dogWalkers">
+        <img src="../../assets/images/profilna.jpg" class="card-img-top" style="width: 100px; height: auto;" alt="...">
+        <div class="card-body">
+          <div class="dog-walker" (click)="fetchAppointments(dog_walker.id)">
+            <button type="button" class="btn btn-outline-primary slot-button"><h5 class="card-title">{{ dog_walker.first_name }} {{ dog_walker.last_name }}</h5></button>
+            
+          </div>
+          <div *ngIf="selectedDogWalker === dog_walker.id">
+            <div *ngFor="let timeslot of freeTimeSlots">
+              <div class="card mb-3">
+                <div class="card-body text-center">
+                  <button class="card-title custom-button" (click)="createAppointment(timeslot)">{{ timeslot }}</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  
+  
+  
+
+  
