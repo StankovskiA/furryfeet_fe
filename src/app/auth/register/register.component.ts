@@ -31,8 +31,7 @@ export class RegisterComponent {
         password: this.registerForm.value.password,
         is_dog_walker: this.registerForm.value.isDogWalker
       };
-      console.log(user)
-  
+        
       this.registerService.createUser(user).subscribe(
         response => {
           console.log('User created successfully:', response.email);
