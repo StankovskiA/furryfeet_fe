@@ -6,17 +6,20 @@
     <h1>Appointment List</h1>
   
     <div class="row">
-      <div class="col-md-3" *ngFor="let appointment of appointments">
+      <div class="col-md-3" *ngFor="let dog_walker of dogWalkers">
         <div class="card mb-3">
           <div class="card-body">
-            <h5 class="card-title">{{ appointment.date }}</h5>
-            <h6 class="card-subtitle mb-2 text-muted">{{ appointment.dog_walker }}</h6>
-            <p class="card-text">
-              <strong>Dog:</strong> {{ appointment.dog }}
-            </p>
-            <p class="card-text">
-              <strong>Timeslot:</strong> {{ appointment.timeslot }}
-            </p>
+            <button class="card-title" (click)="fetchAppointments(dog_walker.id)">{{ dog_walker.first_name }} {{ dog_walker.last_name }} {{dog_walker.id}}</button>
+          </div>
+        </div>
+      </div>
+    </div>  
+
+    <div class="row">
+      <div class="col-md-3" *ngFor="let timeslot of freeTimeSlots">
+        <div class="card mb-3">
+          <div class="card-body">
+            <button class="card-title" (click)="createAppointment(timeslot)">{{ timeslot }}</button>
           </div>
         </div>
       </div>
