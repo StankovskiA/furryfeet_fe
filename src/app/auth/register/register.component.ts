@@ -18,6 +18,7 @@ export class RegisterComponent {
       lastname: ['', Validators.required],      
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(8), Validators.pattern(/^(?=.*\d)(?=.*[A-Z])/)]],
+      isDogWalker: [false]
     });
   }
 
@@ -27,8 +28,10 @@ export class RegisterComponent {
         first_name: this.registerForm.value.firstname,
         last_name: this.registerForm.value.lastname,
         email: this.registerForm.value.email,
-        password: this.registerForm.value.password
+        password: this.registerForm.value.password,
+        is_dog_walker: this.registerForm.value.isDogWalker
       };
+      console.log(user)
   
       this.registerService.createUser(user).subscribe(
         response => {
