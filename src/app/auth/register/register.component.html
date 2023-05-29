@@ -32,6 +32,10 @@
           <div *ngIf="registerForm.controls['password'].errors?.['pattern']">Password must contain at least one digit and one capital letter.</div>
         </div>
       </div>
+      <div class="form-field" id="dogWalker">
+        <input type="checkbox" id="isDogWalker" formControlName="isDogWalker">
+        <label for="isDogWalker">I would like to walk dogs</label>
+      </div>
       <div class="form-button">
         <button type="submit">Register</button>
       </div>
