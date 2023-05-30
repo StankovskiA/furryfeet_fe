@@ -3,17 +3,20 @@
 .flex-container {
     display: flex;
     margin-top: 5%;
-    height: 70%;
+    height: 75%;
     width: 80%;
     margin-left: 10%;
 }
 
 .flex-child {
     flex: 1;
+    background-color: #c9dcb3;
+    padding: 2%;
+    border-radius: 25px;
 }   
 
 .flex-child:nth-child(2) {
-    flex-basis: 20%;
+    flex-basis: 25%;
     margin-left: 2%;
 }
 
@@ -30,3 +33,11 @@
     margin-right: auto;
     width: 50%;
   }
+
+p {
+    color: #298279;
+}
+
+mat-icon {
+    color: gold;
+}
