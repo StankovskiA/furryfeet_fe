@@ -1,0 +1,52 @@
+<div class="flex-container">
+    <div class="flex-child">
+      <img src="../../assets/images/default-profilepicture.jpg" style="height: 100%; width: 60%; float: left;">
+      <div style="width: 30%; height: 100%; float: left;">
+        <p>
+          {{loggedInUser.first_name}} {{loggedInUser.last_name}}
+        </p>
+        <p>
+          {{loggedInUser.email}}
+        </p>
+        <p>
+          <a href="/changepassword" style="font-size: 12px;">Change password</a>
+        </p>
+      </div>
+    </div>
+    <div class="flex-child">
+      <ng-container *ngIf="!loggedInUser.is_dog_walker">
+        <img src="../../assets/images/dog-profile.jpg" style="height: 50%; width: 30%;">
+        <div style="margin-top:-20px;" class="dog-info">
+          <br>
+          <br>
+          <p>
+            Name: {{dogData.name}}
+          </p>
+          <p>
+            Breed: {{dogData.breed}}
+          </p>
+          <p>
+            Age: {{dogData.age}}
+          </p>
+          <p>Rating:
+            <mat-icon>star</mat-icon>
+            <mat-icon>star</mat-icon>
+            <mat-icon>star</mat-icon>
+            <mat-icon>star</mat-icon>
+          </p>
+          </div>
+        
+      </ng-container>
+      <ng-container *ngIf="loggedInUser.is_dog_walker">
+        <p style="margin-top: 2%;">Rating:
+          <mat-icon>star</mat-icon>
+          <mat-icon>star</mat-icon>
+          <mat-icon>star</mat-icon>
+        </p><p>Feedback section</p>
+        <div class="feedback">
+          <p class="feedback-p">No feedbacks yet!</p>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+  <br>
