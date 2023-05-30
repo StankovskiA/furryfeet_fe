@@ -1,15 +1,12 @@
 <div class="flex-container">
     <div class="flex-child">
-      <img src="https://www.shutterstock.com/image-photo/young-handsome-man-beard-wearing-260nw-1768126784.jpg" style="height: 100%; width: 60%; float: left;">
-      <div style="width: 20%; height: 100%; float: left;">
+      <img src="../../assets/images/default-profilepicture.jpg" style="height: 100%; width: 60%; float: left;">
+      <div style="width: 30%; height: 100%; float: left;">
         <p>
-          aa
+          {{loggedInUser.first_name}} {{loggedInUser.last_name}}
         </p>
         <p>
-          aa
-        </p>
-        <p>
-          aa
+          {{loggedInUser.email}}
         </p>
         <p>
           <a href="/changepassword" style="font-size: 12px;">Change password</a>
@@ -17,30 +14,37 @@
       </div>
     </div>
     <div class="flex-child">
-      <ng-container>
-        <img src="https://hips.hearstapps.com/hmg-prod/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg?crop=0.752xw:1.00xh;0.175xw,0&resize=1200:*" style="height: 50%; width: 50%;" class="center">
-        <div >
+      <ng-container *ngIf="!loggedInUser.is_dog_walker">
+        <img src="../../assets/images/dog-profile.jpg" style="height: 50%; width: 30%;">
+        <div style="margin-top:-20px;" class="dog-info">
           <br>
           <br>
           <p>
-            Name: 
+            Name: {{dogData.name}}
           </p>
           <p>
-            Brand:
+            Breed: {{dogData.breed}}
           </p>
           <p>
-            Age: 
+            Age: {{dogData.age}}
           </p>
-          <p>Rating:</p>
-          <!-- <ng-container *ngFor="let star of stars"> -->
+          <p>Rating:
             <mat-icon>star</mat-icon>
             <mat-icon>star</mat-icon>
             <mat-icon>star</mat-icon>
             <mat-icon>star</mat-icon>
-          <!-- </ng-container> -->
+          </p>
           </div>
-        <div style="width: 30%; height: 30%; float: right">
-          <!-- za feedback -->
+        
+      </ng-container>
+      <ng-container *ngIf="loggedInUser.is_dog_walker">
+        <p style="margin-top: 2%;">Rating:
+          <mat-icon>star</mat-icon>
+          <mat-icon>star</mat-icon>
+          <mat-icon>star</mat-icon>
+        </p><p>Feedback section</p>
+        <div class="feedback">
+          <p class="feedback-p">No feedbacks yet!</p>
         </div>
       </ng-container>
     </div>

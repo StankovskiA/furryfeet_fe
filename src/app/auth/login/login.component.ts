@@ -32,6 +32,7 @@ export class LoginComponent {
           console.log('User logged in:', response);
           const token = response.jwt; 
           localStorage.setItem(this.tokenKey, token);
+          sessionStorage.setItem('email', JSON.stringify(user.email));
           this.router.navigate(['/']);
         },
         error => {

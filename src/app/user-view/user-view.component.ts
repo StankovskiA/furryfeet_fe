@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserviewService } from '../core/services/userview.service';
+import { HttpHeaders } from '@angular/common/http';
+import { AppointmentService } from '../core/services/appointment.service';
 
 @Component({
   selector: 'app-user-view',
@@ -8,30 +10,54 @@ import { UserviewService } from '../core/services/userview.service';
   styleUrls: ['./user-view.component.css'],
 })
 export class UserViewComponent implements OnInit {
-  users: any;
-  // first_name:any;
-  // last_name:any;
-  // email:any;
+  loggedInUser: any;
+  dogFromUser:any;
+  dogData = {
+    name: "Max",
+    breed: "Labrador Retriever",
+    age: 3,
+    tag: "ABC123",
+    photo: "https://example.com/dog.jpg",
+    owner: 1, 
+  };
 
-  constructor(private userviewService: UserviewService, private router: Router) {}
+  constructor(
+    private userviewService: UserviewService,
+    private router: Router,
+    private appointmentService: AppointmentService
+  ) {}
 
-  ngOnInit(): void {
-    // const first_nameTemp = sessionStorage.getItem('first_name');
-    // this.first_name = first_nameTemp ? JSON.parse(first_nameTemp) : null;
-    
-    // const last_nameTemp = sessionStorage.getItem('last_name');
-    // this.last_name = last_nameTemp ? JSON.parse(last_nameTemp) : null;
-
-    // const emailTemp = sessionStorage.getItem('email');
-    // this.email = emailTemp ? JSON.parse(emailTemp) : null;
-    //this.fetchUser();
+  async ngOnInit(): Promise<void> {
+    // this.createDog();
+    await this.getUser();
+    this.getDog();
   }
 
-  // fetchUser() {
-  //   this.userviewService.getUser().subscribe(
-  //     (users: any) => {
-  //       this.users = users;
-  //     }
-  //   );
-  // }
+  getDog() {
+    // if (this.loggedInUser && this.loggedInUser.is_dog_walker) {
+      this.userviewService.getDog(this.loggedInUser.id).subscribe((data) => {
+        console.log(data);
+        this.dogFromUser=data;
+      });
+    // }
+  }
+
+  async getUser() {
+    this.loggedInUser = await this.userviewService.getUser().toPromise();
+  }
+  
+  createDog(){
+    this.userviewService.createDog(this.dogData).subscribe(
+      (response) => {
+        console.log(response);
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
+  }
+
+  toChangePassword(){
+    this.router.navigate(['/']);
+  }
 }
