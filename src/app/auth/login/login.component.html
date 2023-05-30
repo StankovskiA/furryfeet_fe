@@ -56,7 +56,10 @@
       <button type="submit">Login</button>
     </div>
     <div class="form-text">
-      <a href="/auth/register">Register here!</a>
+      <a [routerLink]="['/auth/register']">Register here!</a>
+    </div>
+    <div class="form-text">
+      <a [routerLink]="['/auth/changepassword']">Change your password!</a>
     </div>
   </form>
 </div>
