@@ -6,6 +6,7 @@ import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { ChangePasswordComponent } from './auth/change-password/change-password.component';
 import { AppointmentsListComponent } from './appointments-list/appointments-list.component';
+import { UserViewComponent } from './user-view/user-view.component';
 
 const routes: Routes = [
   { path: 'auth', 
@@ -20,6 +21,8 @@ const routes: Routes = [
   { path: 'about', component: AboutComponent },
   { path: 'appointments-list', component: AppointmentsListComponent }
 
+  { path: 'about', component: AboutComponent }, 
+  { path: 'user-view', component: UserViewComponent }
 ];
 
 @NgModule({

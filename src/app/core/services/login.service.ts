@@ -9,7 +9,12 @@ import { environment } from 'src/environments/environment';
 export class LoginService {
 
   constructor(private http: HttpClient) { }
+
   loginUser(user: any): Observable<any> {
+    console.log("USER:");
+    
+    console.log(user);
+    
     return this.http.post<any>(`${environment.apiUrl}/login/`, user);
   }
   logoutUser(): void{

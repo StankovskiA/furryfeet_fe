@@ -13,7 +13,7 @@
                 <a routerLink="/about" routerLinkActive="active">About</a>
                 <a routerLink="/appointments-list" routerLinkActive="active">Appointments</a>
                 <ng-container *ngIf="checkLoggedIn(); else notLoggedIn">
-                    <a routerLink="/profile" routerLinkActive="active">Profile</a>
+                    <a routerLink="/user-view" routerLinkActive="active">Profile</a>
                     <a routerLink="/" (click)="logout()" routerLinkActive="active">Logout</a>
                 </ng-container>
                 <ng-template #notLoggedIn>
